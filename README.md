@@ -1,0 +1,1 @@
+# Learn Typescript basic with Easy Frontend
