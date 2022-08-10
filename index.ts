@@ -1,13 +1,8 @@
-// 1. const
-// - Dung cho hang so. UPPER_CASE
-// - Dung cho bien ma ko co nhu cau thay doi gia tri. camelCase
+// Falsy
+// null, undefined, '', NaN, 0, false
 
-const API_URL = 'https://api.com';
-const DEFAULT_SIZE = 12;
+// Con lai la truthy
 
-const isActice = true;
-const student = { name: '' };
-student.name = 'Bob';
-
-const numberList = [];
-numberList.push(1);
+// Check length
+// if(name.length) {}  // BAD
+// if(name.length > 0) {} // GOOD
