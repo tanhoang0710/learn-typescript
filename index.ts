@@ -1,53 +1,33 @@
-// Enum (default là number enum)
-// 1. Number enum
+// Generics
+// Hiểu nôm na là kiểu dữ liệu mà có nhận tham số và trả về kiểu dữ liệu tương ứng
 
-// default từ 0
-// enum Status {
-//     PENDING,      // 0
-//     IN_PROGRESS,  // 1
-//     DONE,         // 2
-//     CANCELED      // 3
-// }
-
-// bắt đầu từ 3
-// enum Status {
-//     PENDING = 3, // 3
-//     IN_PROGRESS, // 4
-//     DONE, // 5
-//     CANCELED, // 6
-// }
-
-// tự config:
-enum Status {
-    PENDING = 3,
-    IN_PROGRESS = 6,
-    DONE = 8,
-    CANCELED = 10,
+interface Student {
+    id: number;
+    name: string;
 }
 
-// có thể gán giá trị bất kì cho enum variable
-const stats1: Status = Status.PENDING;
-const stats2: Status = 1;
-const stats3: Status = -1;
+const numberList: Array<number> = [1, 2, 3];
+const wordList: Array<string> = ['easy', 'frontend'];
 
-// number enum --> support reverse mapping
-console.log(Status);
-console.log(Status[3]); // PENDING
-console.log(Status['DONE']); // 8
-console.log(stats3); // 8
+const studentList: Array<Student> = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' },
+];
 
-// 2. String enum
-enum MediaTypes {
-    JSON = 'application/json',
-    XML = 'application/xml',
+// VD:
+interface List<T> {
+    length: number;
+    [index: number]: T;
 }
 
-fetch('https://example.com/api/endpoint', {
-    headers: {
-        Accept: MediaTypes.JSON,
-    },
-}).then((res) => res.json());
+const numberList1: List<number> = [1, 2, 3];
+const wordList1: List<string> = ['easy'];
 
-// 3. Khi nào dùng enum
-// - Khi nào dùng dữ liệu 1 chiều
-// - Khi dữ liệu API trả về ko dùng enum, mà dùng union type
+const studentList1: List<Student> = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' },
+];
+
+type StudentKeys = keyof Student;
+// danh sach key cua Student
+const keys: StudentKeys = 'id';
